@@ -1,0 +1,16 @@
+const path = require("path");
+const fs = require("fs");
+const { execSync, spawnSync } = require("child_process");
+const buttPath = path.join(__dirname, "butt.js");
+const message = `// butt time: ${new Date().toLocaleString()}`;
+const butt = fs.readFileSync(buttPath);
+const lines = butt
+  .toString()
+  .split("\n")
+  .filter((l) => l);
+lines.reverse().splice(0, 1, message);
+lines.reverse();
+const doc = lines.join("\n");
+fs.writeFileSync(buttPath, doc);
+console.log(execSync(`git add . && git commit -m "${message}"`).toString());
+// butt time: 14/12/2021, 12:08:43
