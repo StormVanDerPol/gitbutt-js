@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const { execSync, spawnSync } = require("child_process");
+const { execSync } = require("child_process");
 const buttPath = path.join(__dirname, "butt.js");
 const message = `// butt time: ${new Date().toLocaleString()}`;
 const butt = fs.readFileSync(buttPath);
