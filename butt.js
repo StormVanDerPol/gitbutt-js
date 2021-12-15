@@ -14,4 +14,4 @@ const doc = lines.join("\n");
 fs.writeFileSync(buttPath, doc);
 execSync(`git add . && git commit -m "${message}"`);
 execSync("git push origin master");
-// butt time: 12/14/2021, 8:55:17 PM
+// butt time: 12/15/2021, 1:00:01 PM
