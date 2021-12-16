@@ -2,8 +2,5 @@
   "name": "gitbutt-js",
   "version": "1.0.0",
   "main": "butt.js",
-  "license": "MIT",
-  "engines": {
-    "node": "latest"
-  }
+  "license": "MIT"
 }
