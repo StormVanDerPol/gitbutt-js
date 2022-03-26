@@ -12,6 +12,23 @@ lines.reverse().splice(0, 1, `/* ${message} */`);
 lines.reverse();
 const doc = lines.join("\n");
 fs.writeFileSync(buttPath, doc);
-execSync(`git add . && git commit -m "${message}"`);
-execSync("git push origin master");
+
+const retry = (fn, maxTries, delay) => {
+  try {
+    fn();
+  } catch (err) {
+    if (maxTries <= 0) throw err;
+    setTimeout(() => retry(fn, maxTries - 1, delay), delay);
+  }
+};
+
+retry(
+  () => {
+    execSync(`git add . && git commit -m "${commitMessage}"`);
+    execSync("git push origin master");
+  },
+  5,
+  1000
+);
+
 /* 26/03/2022, 09:59:02 */
