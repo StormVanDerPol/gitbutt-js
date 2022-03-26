@@ -24,7 +24,7 @@ const retry = (fn, maxTries, delay) => {
 
 retry(
   () => {
-    execSync(`git add . && git commit -m "${commitMessage}"`);
+    execSync(`git add . && git commit -m "${message}"`);
     execSync("git push origin master");
   },
   5,
