@@ -12,7 +12,6 @@ lines.reverse().splice(0, 1, `/* ${message} */`);
 lines.reverse();
 const doc = lines.join("\n");
 fs.writeFileSync(buttPath, doc);
-
 const retry = (fn, maxTries, delay) => {
   try {
     fn();
@@ -21,7 +20,6 @@ const retry = (fn, maxTries, delay) => {
     setTimeout(() => retry(fn, maxTries - 1, delay), delay);
   }
 };
-
 retry(
   () => {
     execSync(`git add . && git commit -m "${message}"`);
@@ -30,5 +28,4 @@ retry(
   5,
   1000
 );
-
-/* 26/03/2022, 09:59:02 */
+/* 26/03/2022, 11:54:46 */
