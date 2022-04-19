@@ -37,10 +37,12 @@ const retry = (fn, maxtries, delay) => {
 };
 retry(
   () => {
-    execSync(`git add . && git commit -m "it's ${buttMap[now.getDay()]}, my dudes! ${now.toLocaleString()}"`);
+    const buttDay = buttMap[now.getDay()];
+    const isWednesday = buttDay === buttMap[3];
+    execSync(`git add . && git commit -m "it's ${buttMap[now.getDay()]}${isWednesday ? ", my dudes!" : ''} ${now.toLocaleString()}"`);
     execSync("git push origin master");
   },
   100,
   5000
 );
-/* 2022-04-19T09:22:31.647Z */
+/* 2022-04-19T09:26:16.274Z */
