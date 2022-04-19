@@ -17,7 +17,7 @@ const lines = butt
   .split("\n")
   .filter((l) => l);
 lines.reverse();
-const then = new Date(lines[0].match(/\/\*(.+)\*\//)[1].trim());
+const then = new Date(lines[0].match(/\/\*(.+?)\*\//)[1].trim());
 const now = new Date();
 if (then.getDate() === now.getDate()) {
   console.log("Already did a butt today")
@@ -43,4 +43,4 @@ retry(
   100,
   5000
 );
-/* 2022-04-19T09:17:49.895Z */
+/* 2022-04-19T09:22:31.647Z */
